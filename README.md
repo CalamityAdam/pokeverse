@@ -28,6 +28,14 @@ Pokemon Wiki
   npm run lint
   ```
 
+## Week 2 Instructions
+
+1. Install [react-router v6](https://reactrouter.com/docs/en/v6/getting-started/tutorial#installation)
+  ```sh
+  npm install react-router-dom@6
+  ```
+1. 
+
 ---
 
 > Made with ♥️
