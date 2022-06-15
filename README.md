@@ -76,7 +76,7 @@ Pokemon Wiki
         - `weight: {pokemon.weight}`
         - abilities: iterate over `pokemon.abilities`, and for each `ability` render the `ability.ability.name`
         - types: iterate over `pokemon.types` and for each `type` render the `type.type.name`
-        - stats: iterate over `pokemon.stats` and for each `stat` render the `stat.state.name` and `stat.base_stat`
+        - stats: iterate over `pokemon.stats` and for each `stat` render the `stat.stat.name` and `stat.base_stat`
 1. Lastly, let's link to the newly created route and component! In `PokemonCard.js`, wrap the `{name}` of the Pokemon with a `<Link>` with a `to` value of `/${name}`
     ```jsx
     <Link to={`/${name}`}>
