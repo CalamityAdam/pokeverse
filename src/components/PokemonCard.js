@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { FavoritesContext } from '../FavoritesProvider';
 
-function PokemonCard({ url, name }) {
+function PokemonCard({ name }) {
   const [pokemon, setPokemon] = useState(null);
+  const { favorites, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
 
   useEffect(() => {
-    fetch(url)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setPokemon(data);
@@ -14,7 +18,7 @@ function PokemonCard({ url, name }) {
       .catch((error) => {
         console.error(error);
       });
-  }, [url]);
+  }, [name]);
 
   return (
     <Card style={{ width: '18rem' }} className='mx-auto'>
@@ -27,9 +31,7 @@ function PokemonCard({ url, name }) {
       />
       <Card.Body>
         <Card.Title>
-          <Link to={`/${name}`}>
-            {name}
-          </Link>
+          <Link to={`/${name}`}>{name}</Link>
         </Card.Title>
         <Card.Text as='div'>
           Abilities:
@@ -41,6 +43,16 @@ function PokemonCard({ url, name }) {
             ))}
           </ul>
         </Card.Text>
+
+        {favorites.includes(name) ? (
+          <Button variant='danger' onClick={() => removeFavorite(name)}>
+            Remove from Favorites
+          </Button>
+        ) : (
+          <Button variant='primary' onClick={() => addFavorite(name)}>
+            Add to favorites
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );

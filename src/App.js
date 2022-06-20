@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
-import { Home, PokemonDetails } from './routes';
+import { Favorites, Home, PokemonDetails } from './routes';
+import { FavoritesProvider } from './FavoritesProvider';
 
 function App() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -19,14 +20,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div data-testid='app'>
-        <Navigation />
+      <FavoritesProvider>
+        <div data-testid='app'>
+          <Navigation />
 
-        <Routes>
-          <Route path='/' element={<Home pokemonList={pokemonList} />} />
-          <Route path='/:name' element={<PokemonDetails />} />
-        </Routes>
-      </div>
+          <Routes>
+            <Route path='/' element={<Home pokemonList={pokemonList} />} />
+            <Route path='/:name' element={<PokemonDetails />} />
+            <Route path='/favorites' element={<Favorites />} />
+          </Routes>
+        </div>
+      </FavoritesProvider>
     </BrowserRouter>
   );
 }
