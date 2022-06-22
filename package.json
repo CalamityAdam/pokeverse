@@ -1,9 +1,9 @@
 {
-  "name": "pokeverse-solution",
+  "name": "pokeverse",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "build": "parcel build src/index.html",
     "lint": "eslint ./src --ext .js,.jsx",
     "start": "parcel src/index.html --open",
     "test:watch": "jest --watch",
