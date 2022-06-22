@@ -37,7 +37,7 @@ function Home({ pokemonList }) {
       <Row className='g-4'>
         {filteredPokemon.map((pokemon) => (
           <Col key={pokemon.name}>
-            <PokemonCard url={pokemon.url} name={pokemon.name} />
+            <PokemonCard name={pokemon.name} />
           </Col>
         ))}
       </Row>

@@ -1,9 +1,9 @@
 {
-  "name": "pokeverse-solution",
+  "name": "pokeverse",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "build": "parcel build src/index.html",
     "lint": "eslint ./src --ext .js,.jsx",
     "start": "parcel src/index.html --open",
     "test:watch": "jest --watch",
@@ -22,6 +22,7 @@
     "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
+    "@parcel/css": "^1.10.1",
     "@ramseyinhouse/eslint-config": "^1.0.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
